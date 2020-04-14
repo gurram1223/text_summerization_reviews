@@ -28,6 +28,7 @@ app = Flask(__name__)
 addr = "save/cb_model/2-2_500/"
 checkpoint_iter = 20000
 #loadFilename = os.path.join(addr,'{}_checkpoint_1.tar'.format(checkpoint_iter))
+
 loadFilename = os.path.join('{}_checkpoint.tar'.format(checkpoint_iter))
 
 voc = Voc()
@@ -35,7 +36,8 @@ voc = Voc()
 # Load model if a loadFilename is provided
 if loadFilename:
     # If loading on same machine the model was trained on #, map_location=device
-    checkpoint = torch.load(loadFilename, map_location='cpu')
+    #checkpoint = torch.load(loadFilename, map_location='cpu')
+    checkpoint = torch.load(loadFilename, map_location=lambda storage, loc: storage)
     # If loading a model trained on GPU to CPU
     #checkpoint = torch.load(loadFilename, map_location=torch.device('cpu'))
     encoder_sd = checkpoint['en']
@@ -174,4 +176,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv('PORT',5000))
+    app.run()
