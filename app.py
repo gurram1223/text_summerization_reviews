@@ -34,8 +34,8 @@ voc = Voc()
 
 # Load model if a loadFilename is provided
 if loadFilename:
-    # If loading on same machine the model was trained on
-    checkpoint = torch.load(loadFilename, map_location=device)
+    # If loading on same machine the model was trained on #, map_location=device
+    checkpoint = torch.load(loadFilename)
     # If loading a model trained on GPU to CPU
     #checkpoint = torch.load(loadFilename, map_location=torch.device('cpu'))
     encoder_sd = checkpoint['en']
