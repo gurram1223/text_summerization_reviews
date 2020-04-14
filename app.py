@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import os
 from flask import Flask, request, render_template
-import torch
+import torch 
 import torch.nn as nn
 #USE_CUDA = torch.cuda.is_available()
 device = torch.device("cpu")
@@ -36,8 +36,7 @@ voc = Voc()
 # Load model if a loadFilename is provided
 if loadFilename:
     # If loading on same machine the model was trained on #, map_location=device
-    #checkpoint = torch.load(loadFilename, map_location='cpu')
-    checkpoint = torch.load(loadFilename, map_location=lambda storage, loc: storage)
+    checkpoint = torch.load(loadFilename, map_location='cpu')
     # If loading a model trained on GPU to CPU
     #checkpoint = torch.load(loadFilename, map_location=torch.device('cpu'))
     encoder_sd = checkpoint['en']
@@ -45,11 +44,11 @@ if loadFilename:
     embedding_sd = checkpoint['embedding']
     voc.__dict__ = checkpoint['voc_dict']
 
-
-embedding = nn.Embedding(voc.num_words, hidden_size)
 # Initialize encoder & decoder models
+embedding = nn.Embedding(voc.num_words, hidden_size)
 encoder = EncoderRNN(hidden_size, embedding, encoder_n_layers, dropout)
 decoder = LuongAttnDecoderRNN(attn_model, embedding, hidden_size, voc.num_words, decoder_n_layers, dropout)
+
 encoder.load_state_dict(encoder_sd)
 decoder.load_state_dict(decoder_sd)
 embedding.load_state_dict(embedding_sd)
