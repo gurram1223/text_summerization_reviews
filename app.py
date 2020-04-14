@@ -35,7 +35,7 @@ voc = Voc()
 # Load model if a loadFilename is provided
 if loadFilename:
     # If loading on same machine the model was trained on #, map_location=device
-    checkpoint = torch.load(loadFilename)
+    checkpoint = torch.load(loadFilename, map_location='cpu')
     # If loading a model trained on GPU to CPU
     #checkpoint = torch.load(loadFilename, map_location=torch.device('cpu'))
     encoder_sd = checkpoint['en']
@@ -85,6 +85,7 @@ def clean(text, summary = True):
           if len(i)>=3:                  #removing short word length < 3 
               long_words.append(i)  
       return (" ".join(long_words)).strip()
+
 
 def indexesFromSentence(voc, sentence):
     return [voc.word2index[word] if word in voc.word2index.keys() else RARE_WORD for word in sentence.split(' ')] + [EOS_token]
@@ -173,4 +174,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=app.config['DEBUG'])
+    app.run(debug=True, port=os.getenv('PORT',5000))
