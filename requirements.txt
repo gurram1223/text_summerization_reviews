@@ -7,3 +7,4 @@ MarkupSafe==1.1.1
 Werkzeug==0.15.5
 bs4==0.0.1
 numpy>=1.9.2
+gunicorn == 19.9.0
