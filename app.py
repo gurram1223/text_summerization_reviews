@@ -44,6 +44,8 @@ if loadFilename:
     embedding_sd = checkpoint['embedding']
     voc.__dict__ = checkpoint['voc_dict']
 
+
+
 # Initialize encoder & decoder models
 embedding = nn.Embedding(voc.num_words, hidden_size)
 encoder = EncoderRNN(hidden_size, embedding, encoder_n_layers, dropout)
