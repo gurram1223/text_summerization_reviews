@@ -32,7 +32,7 @@ You should be able to view the homepage as below :
 
 Enter the text and click on predict. Please find the below results.
 
-![alt text](https://github.com/gurram1223/text_summerization_reviews/blob/master/Image%20files/summerizer_output.PNG)
+![Output text](https://github.com/gurram1223/text_summerization_reviews/blob/master/Image%20files/summerizer_output.PNG)
 
 ## Google Cloud Compute(GCP) - Using App Engine
 
