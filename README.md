@@ -34,7 +34,7 @@ Enter the text and click on predict. Please find the below results.
 
 ![Output text](https://github.com/gurram1223/text_summerization_reviews/blob/master/Image%20files/summerizer_output.PNG)
 
-## Google Cloud Compute(GCP) - Using App Engine
+## Google Cloud Compute(GCP) - Using App Engine(PaaS - Platform as a service)
 
 1. Open Google cloud compute platform (https://console.cloud.google.com/)
 
@@ -46,4 +46,4 @@ Enter the text and click on predict. Please find the below results.
 
 5. URL: https://summerization-reviews.el.r.appspot.com/ - It has limitation on the requests because we have large sized weights file and dependecies which consumes all the default memory in the cloud.
 
-
+### Note : Google App Engine is free up to a certain amount of resource usage.
