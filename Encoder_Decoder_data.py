@@ -1,8 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-USE_CUDA = torch.cuda.is_available()
-device = torch.device("cuda" if USE_CUDA else "cpu")
 
 contraction_mapping = {"ain't": "is not", "aren't": "are not","can't": "cannot", "'cause": "because", "could've": "could have", "couldn't": "could not",
 
@@ -50,6 +48,10 @@ contraction_mapping = {"ain't": "is not", "aren't": "are not","can't": "cannot",
 
                            "you're": "you are", "you've": "you have"}
 
+
+
+
+stopword_set = {'itself', 'are', 'other', 'whom', 'above', 'ours', 'a', 'your', 'if', 'these', 'an', "weren't", 'after', 'off', 'myself', "you've", 'its', 'now', "won't", 'hadn', 'with', 'by', 'mightn', 'how', 'too', 'didn', 'under', 'as', 'ain', 'am', 'himself', 'down', 's', 'm', 'this', 'here', 'few', 'to', 'during', 'has', 'some', 't', 'but', 'yours', 'doing', 'isn', 're', 'because', "needn't", 'any', 'when', 'each', 'haven', 'was', 'd', 'while', 'had', 'her', "wasn't", 'or', 'then', "couldn't", 'those', 'can', 'them', 'be', 'into', 'there', 'his', "she's", 'the', "hasn't", 'which', 'being', 'at', 'needn', 'yourself', 'further', "don't", 'mustn', 'what', "mightn't", 'having', 'she', "that'll", 'our', "hadn't", 'no', 'from', "aren't", 'it', 'between', 'don', 'yourselves', 'below', 'their', 'most', 'is', 'very', 'of', 'just', "mustn't", 'wouldn', "haven't", 'who', 'against', "wouldn't", 'i', 'in', 'll', 'more', "isn't", 'about', 'shouldn', 'once', 'does', 'out', 'through', "shouldn't", 'ourselves', "shan't", 'nor', 'herself', 'did', 'only', 'for', 'they', 'and', 'do', 'doesn', 'he', "you're", 'should', 'couldn', 'we', 'themselves', 'aren', 'where', 'same', 'why', 'will', 'hasn', "you'd", "should've", 'up', 've', 'again', 'hers', "it's", 'theirs', 'until', 'so', 'before', 'me', 'on', 'y', 'not', 'my', 'been', 'o', 'him', 'all', "you'll", 'wasn', 'own', 'such', 'ma', 'over', 'shan', 'you', 'won', "doesn't", 'both', 'than', 'that', 'have', 'weren', "didn't", 'were'}
 
 # Default word tokens
 PAD_token = 0  # Used for padding short sentences
