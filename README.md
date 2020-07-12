@@ -1,4 +1,6 @@
-# Model Deployed on GCP
+# Review Summerization - Model Deployed on GCP
+
+The model is trained on food reviews with ~2L datapoints.
 
 ## Prerequisites
 
