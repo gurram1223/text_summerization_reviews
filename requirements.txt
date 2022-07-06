@@ -2,5 +2,5 @@ http://download.pytorch.org/whl/cpu/torch-0.4.1-cp37-cp37m-linux_x86_64.whl
 beautifulsoup4==4.7.1
 bs4==0.0.1
 Flask==1.1.1
-lxml==4.3.4
+lxml==4.9.1
 numpy==1.16.4
